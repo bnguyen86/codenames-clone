@@ -26,14 +26,17 @@ var cssFilesToInject = [
 var jsFilesToInject = [
 
   // Load sails.io before everything else
-  'js/dependencies/sails.io.js',
+  'scripts/dependencies/sails.io.js',
 
   // Dependencies like jQuery, or Angular are brought in here
-  'js/dependencies/**/*.js',
+  'scripts/dependencies/**/*.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
-  'js/**/*.js'
+  'scripts/**/*.js',
+
+  'bower_components/**/*.js'
+
 ];
 
 
@@ -48,6 +51,14 @@ var jsFilesToInject = [
 // for information on customizing and installing new tasks.
 var templateFilesToInject = [
   'templates/**/*.html'
+];
+
+var viewFilesToInject = [
+  'views/**/*.html'
+];
+
+var imageFilesToInject = [
+  'images/**/*.*'
 ];
 
 
@@ -70,6 +81,14 @@ module.exports.jsFilesToInject = jsFilesToInject.map(function(jsPath) {
 });
 module.exports.templateFilesToInject = templateFilesToInject.map(function(tplPath) {
   return require('path').join('assets/',tplPath);
+});
+
+module.exports.viewFilesToInject = viewFilesToInject.map(function(viewPath) {
+  return require('path').join('.tmp/public/',viewPath);
+});
+
+module.exports.imageFilesToInject = imageFilesToInject.map(function(imgPath) {
+  return require('path').join('.tmp/public/',imgPath);
 });
 
 

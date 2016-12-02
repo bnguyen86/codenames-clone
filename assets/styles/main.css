@@ -1,0 +1,11 @@
+.md-headline{
+    text-align: center;
+}
+
+.ng-enter-active{
+    animation: flipInY 1s;
+}
+
+.ng-leave-active{
+    animation: flipOutY 1s;
+}

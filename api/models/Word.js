@@ -8,6 +8,18 @@
 module.exports = {
 
   attributes: {
+    wid: {
+        type: 'integer',
+        unique: true,
+        autoIncrement: true
+    },
+    value: {
+        type: 'string',
+        unique: true
+    },
+    category: {
+        type: 'string'
+    }
 
   }
 };
