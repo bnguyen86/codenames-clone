@@ -18,7 +18,7 @@ angular
     'ngAria',
     'ngMessages',
     'ngMaterial'
-  ])
+  ]);
   // .config(function ($routeProvider) {
   //   $routeProvider
   //     .when('/', {

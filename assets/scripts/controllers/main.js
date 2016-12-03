@@ -8,33 +8,8 @@
  * Controller of the codenamesApp
  */
 angular.module('codenamesApp')
-  .controller('MainCtrl', ['$scope', function ($scope) {
-      $scope.wordList = [
-          'alligator',
-          'ant',
-          'bear',
-          'bee',
-          'bird',
-          'camel',
-          'cat',
-          'cheetah',
-          'chicken',
-          'chimpanzee',
-          'cow',
-          'crocodile',
-          'deer',
-          'dog',
-          'dolphin',
-          'duck',
-          'eagle',
-          'elephant',
-          'fish',
-          'fly',
-          'fox',
-          'frog',
-          'giraffe',
-          'goat',
-          'goldfish'
-  
-      ]
+    .controller('MainCtrl', ['$scope', 'WordService',
+                            function ($scope, WordService) {
+        $scope.wordList = WordService.getWordSet(null);
+        $scope.wordList = WordService.shuffleWords($scope.wordList);
     }]);
