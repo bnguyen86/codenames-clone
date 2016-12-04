@@ -10,7 +10,7 @@
 angular.module('codenamesApp')
     .service('WordService', ['$resource', function($resource) {
             this.getWordSet = function (currentSet) {
-                var wordList = $resource('/word');
+                var wordList = $resource('/word/set');
 
     
                 return wordList.query();

@@ -45,5 +45,9 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+  'get /word/set': 'RandomController.randomSet',
+  'get /word/set/:category': 'RandomController.randomSetByCategroy',
+  'get /word/one': 'RandomController.randomWord',
+  'get /word/one/:category': 'RandomController.randomWordByCategory'
 
 };
