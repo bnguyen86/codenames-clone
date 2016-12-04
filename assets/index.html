@@ -13,7 +13,7 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
-    <link rel="stylesheet" href="bower_components/animate.css/animate.min.css">
+    <link rel="stylesheet" href="bower_components/angular-motion/dist/angular-motion.css">
 
     <!-- endbuild -->
 <!--     <script src="https://use.fontawesome.com/38065ec122.js"></script> -->
@@ -25,7 +25,7 @@
 
     <!-- Add your site or application content here -->
     <div ng-controller="MainCtrl" ng-cloak>
-      <md-content>
+      <md-content class="no-overflow">
         <md-fab-toolbar md-open="demo.isOpen" count="demo.count" md-direction="{{demo.selectedDirection}}">
             <md-fab-trigger class="align-with-text">
                 <md-button aria-label="menu" class="md-fab md-primary">
@@ -37,7 +37,7 @@
                     <md-button aria-label="comment" class="md-icon-button">
                         <md-icon md-svg-src="images/ic_view_comfy_white_24px.svg"></md-icon>
                     </md-button>
-                    <md-button aria-label="label" class="md-icon-button">
+                    <md-button aria-label="label" class="md-icon-button" ng-click="shuffleWords(wordList)">
                         <md-icon md-svg-src="images/ic_shuffle_white_24px.svg"></md-icon>
                     </md-button>
                     <md-button aria-label="photo" class="md-icon-button">
@@ -49,15 +49,21 @@
 
         <div layout="row" layout-wrap>
 
-          <div ng-repeat="word in wordList" flex="20" ng-animate="'flipInY animated'">
-            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+          <div ng-repeat="word in wordList" flex="20" class="am-flip-x">
+            <md-card md-theme-watch class="word-card" ng-class="word.team">
         
                 <md-card-content layout="row" layout-align="center center">
                   <span flex class="md-headline">{{word.value}}</span>                
                 </md-card-content>
-              <md-card-actions layout="row" layout-align="center center">
-                <!-- <md-button>b</md-button>
-                <md-button>r</md-button> -->
+              <md-card-actions layout="row" layout-align="center end">
+                <md-button flex="35" class="md-raised custom-btn red-team" aria-label="red-team"
+                            ng-click="setTeam('red-team', word)"></md-button>
+                <md-button flex="35" class="md-raised custom-btn blue-team" aria-label="blue-team"
+                            ng-click="setTeam('blue-team', word)"></md-button>
+                <md-button flex="15" class="md-raised custom-btn neutral-team" aria-label="neutral-team"
+                            ng-click="setTeam('neutral-team', word)"></md-button>
+                <md-button flex class="md-raised custom-btn black-team" aria-label="black-team"
+                            ng-click="setTeam('black-team', word)"></md-button>
               </md-card-actions>
             </md-card>
           </div>
@@ -83,7 +89,7 @@
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
 
-    <!--SCRIPTS-->
+    <!--REMOVE-SCRIPTS-->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -95,7 +101,7 @@
     <script src="bower_components/angular-material/angular-material.js"></script>
 
     <script src="bower_components/chance/chance.js"></script>
-    <!--SCRIPTS END-->
+    <!--REMOVE-SCRIPTS END-->
 
     <!-- endbower -->
     <!-- endbuild -->

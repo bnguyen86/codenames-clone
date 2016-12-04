@@ -11,5 +11,20 @@ angular.module('codenamesApp')
     .controller('MainCtrl', ['$scope', 'WordService',
                             function ($scope, WordService) {
         $scope.wordList = WordService.getWordSet(null);
-        $scope.wordList = WordService.shuffleWords($scope.wordList);
+
+        $scope.shuffleWords = function (wordArray) {
+            $scope.wordList = WordService.shuffleWords(wordArray);
+            
+            return $scope.wordList;
+        };
+
+        $scope.setTeam = function (teamName, cardObj) {
+            console.log(teamName);
+            console.log(cardObj);
+            if(teamName === cardObj.team){
+                cardObj.team = '';
+            } else{
+                cardObj.team = teamName;                
+            }
+        }
     }]);

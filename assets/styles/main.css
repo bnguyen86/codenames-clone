@@ -1,5 +1,56 @@
-.md-headline{
+.word-card .md-headline{
     text-align: center;
+    font-size: 3vmin;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+.md-button.custom-btn.red-team,
+.word-card.red-team {
+    background: #f44336;
+    color: #ffffff;
+}
+
+.md-button.custom-btn.red-team:hover,
+.word-card.red-team:hover {
+    background: #ffcdd2;
+}
+
+.md-button.custom-btn.blue-team,
+.word-card.blue-team {
+    background: #3f51b5;
+    color: #ffffff;
+}
+
+.md-button.custom-btn.blue-team:hover,
+.word-card.blue-team:hover {
+    background: #c5cae9;
+}
+
+.md-button.custom-btn.neutral-team,
+.word-card.neutral-team {
+    background: #9e9e9e;
+    color: #ffffff;
+}
+
+.md-button.custom-btn.neutral-team:hover,
+.word-card.neutral-team:hover {
+    background: #c5c5c5;
+}
+
+.md-button.custom-btn.black-team,
+.word-card.black-team {
+    background: #000000;
+    color: #ffffff;
+}
+
+.md-button.custom-btn.black-team:hover,
+.word-card.black-team:hover {
+    background: #424242;
+}
+
+
+.word-card .md-button{
+    min-width: initial;
 }
 
 .ng-enter-active{
@@ -8,4 +59,8 @@
 
 .ng-leave-active{
     animation: flipOutY 1s;
+}
+
+md-content.no-overflow{
+    overflow: hidden;
 }
