@@ -9,15 +9,16 @@
  */
 angular.module('codenamesApp')
     .service('WordService', ['$resource', function($resource) {
-            this.getWordSet = function (currentSet) {
+            this.getWordSet = function (currentSet, category) {
                 var wordList = $resource('/word/set');
 
-    
                 return wordList.query();
             }
 
-            this.getRandomWord = function (wordArray) {
-                 /* body... */ 
+            this.getRandomWord = function (wordArray, category) {
+                var word = $resource('/word/one');
+                    
+                return word.query();
             }
     
             this.shuffleWords = function (wordArray) {
