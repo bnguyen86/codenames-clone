@@ -10,7 +10,15 @@
 angular.module('codenamesApp')
     .controller('MainCtrl', ['$scope', 'WordService',
                             function ($scope, WordService) {
+        $scope.colourKey = {
+                                r: 'red-team',
+                                b: 'blue-team',
+                                n: 'neutral-team',
+                                a: 'black-team' 
+                            };
+
         $scope.wordList = WordService.getWordSet(null);
+        $scope.colorMap = WordService.getColourMap(25);
 
         $scope.shuffleWords = function (wordArray) {
             $scope.wordList = WordService.shuffleWords(wordArray);            

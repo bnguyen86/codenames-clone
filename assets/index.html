@@ -46,31 +46,48 @@
                 </md-fab-actions>
             </md-toolbar>
         </md-fab-toolbar>
+        <md-tabs md-dynamic-height class="md-accent" md-selected="data.selectedIndex" md-align-tabs="bottom">
+            <md-tab id="wordBoard">
+                <md-tab-label>Words</md-tab-label>
+                <md-tab-body>
+                    <div layout="row" layout-wrap>
 
-        <div layout="row" layout-wrap>
-
-          <div ng-repeat="word in wordList" flex="20" class="am-flip-x">
-            <md-card md-theme-watch class="word-card" ng-class="word.team">
-        
-                <md-card-content layout="row" layout-align="center center">
-                  <span flex class="md-headline">{{word.value}}</span>                
-                </md-card-content>
-              <md-card-actions layout="row" layout-align="center end">
-                <md-button flex="35" class="md-raised custom-btn red-team" aria-label="red-team"
-                            ng-click="setTeam('red-team', word)"></md-button>
-                <md-button flex="35" class="md-raised custom-btn blue-team" aria-label="blue-team"
-                            ng-click="setTeam('blue-team', word)"></md-button>
-                <md-button flex="15" class="md-raised custom-btn neutral-team" aria-label="neutral-team"
-                            ng-click="setTeam('neutral-team', word)"></md-button>
-                <md-button flex class="md-raised custom-btn black-team" aria-label="black-team"
-                            ng-click="setTeam('black-team', word)"></md-button>
-              </md-card-actions>
-            </md-card>
-          </div>
-          
-          
-        </div>
-
+                      <div ng-repeat="word in wordList" flex="20" class="am-flip-x">
+                        <md-card md-theme-watch class="word-card" ng-class="word.team">
+                    
+                            <md-card-content layout="row" layout-align="center center">
+                              <span flex class="md-headline">{{word.value}}</span>                
+                            </md-card-content>
+                          <md-card-actions layout="row" layout-align="center end">
+                            <md-button flex="35" class="md-raised custom-btn red-team" aria-label="red-team"
+                                        ng-click="setTeam('red-team', word)"></md-button>
+                            <md-button flex="35" class="md-raised custom-btn blue-team" aria-label="blue-team"
+                                        ng-click="setTeam('blue-team', word)"></md-button>
+                            <md-button flex="15" class="md-raised custom-btn neutral-team" aria-label="neutral-team"
+                                        ng-click="setTeam('neutral-team', word)"></md-button>
+                            <md-button flex class="md-raised custom-btn black-team" aria-label="black-team"
+                                        ng-click="setTeam('black-team', word)"></md-button>
+                          </md-card-actions>
+                        </md-card>
+                      </div>
+                    </div>                    
+                </md-tab-body>
+            </md-tab>
+            <md-tab id="keyBoard">
+                <md-tab-label>Map</md-tab-label>
+                <md-tab-body>
+                    <div layout="row" layout-wrap>
+                      <div ng-repeat="color in colorMap.map track by $index" flex="20" class="am-flip-x">
+                        <md-card md-theme-watch class="word-card" ng-class="colourKey[color]">
+                    
+                            <md-card-content layout="row" layout-align="center center">
+                            </md-card-content>
+                        </md-card>
+                      </div>
+                    </div> 
+                </md-tab-body>
+            </md-tab>
+        </md-tabs>
       </md-content>
     </div>
 
