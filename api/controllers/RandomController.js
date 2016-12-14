@@ -18,9 +18,7 @@ module.exports = {
     var wordSet = [];
 
     Word.count()
-      .then(function (count) {
-        RandomService.getRandomWord(count, limit, criteria, wordSet, res);
-      })
+      .then((count) => RandomService.getRandomWord(count, limit, criteria, wordSet, res))
       .catch(sails.log.error);
   },
 

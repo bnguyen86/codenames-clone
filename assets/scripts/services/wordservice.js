@@ -35,7 +35,7 @@ angular.module('codenamesApp')
                     firstColour = 'r';
                     secondColour = 'b';
                 } else{
-                    firstColor = 'b';
+                    firstColour = 'b';
                     secondColour = 'r';
                 }        
 
@@ -56,6 +56,22 @@ angular.module('codenamesApp')
                 colourMap.map = chance.shuffle(colourMap.map);
 
                 return colourMap;
+            }
+
+            this.createGame = function (argument) {
+                 /* body... */ 
+            }
+
+            this.joinGame = function (argument) {
+                 /* body... */ 
+            }
+
+            this.generateGameCode = function (codeLength) {
+                return chance.hash({length : codeLength , casing : 'upper'});
+            }
+
+            this.chooseWord = function (position, colour) {
+                 /* body... */ 
             }
 
 

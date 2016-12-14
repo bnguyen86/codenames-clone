@@ -18,7 +18,8 @@ angular
     'ngAria',
     'ngMessages',
     'ngMaterial',
-    'ngResource'
+    'ngResource',
+    'ja.qr'
   ]);
   // .config(function ($routeProvider) {
   //   $routeProvider

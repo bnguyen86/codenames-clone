@@ -20,6 +20,17 @@ angular.module('codenamesApp')
         $scope.wordList = WordService.getWordSet(null);
         $scope.colorMap = WordService.getColourMap(25);
 
+        $scope.game = {code : 'sampleCODE'};
+
+
+        $scope.createGame = function (argument) {
+             /* body... */ 
+        }
+
+        $scope.joinGame = function (argument) {
+             /* body... */ 
+        }
+
         $scope.shuffleWords = function (wordArray) {
             $scope.wordList = WordService.shuffleWords(wordArray);            
             return $scope.wordList;
