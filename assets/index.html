@@ -55,7 +55,6 @@
                     <md-tab-label>Words</md-tab-label>
                     <md-tab-body>
                         <div layout="row" layout-wrap>
-<qr text="'dsfsdfdsgdgdfg'"></qr>
                           <div ng-repeat="word in wordList" flex="20" class="am-flip-x">
                             <md-card md-theme-watch class="word-card" ng-class="word.team">
                         
@@ -124,6 +123,12 @@
     <script src="bower_components/angular-qr/angular-qr.min.js"></script>
 
     <script src="bower_components/chance/chance.js"></script>
+
+    <script type="text/javascript" src="scripts/dependencies/sails.io.js"
+            autoConnect="false"
+            environment="production"
+            headers="'{ "x-csrf-token": "<%= typeof _csrf === 'undefined' ? _csrf : '' %>" }'">
+    </script>
     <!--REMOVE-SCRIPTS END-->
 
     <!-- endbower -->

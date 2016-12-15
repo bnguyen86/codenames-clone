@@ -7,8 +7,20 @@
 
 module.exports = {
 
-  attributes: {
+    attributes: {
+        gameId: {
+            type: 'string',
+            unique: 'true'
+        },
 
-  }
+        words: {
+            type: 'string' //make this an array of words (not the object)
+        },
+
+        colourMap: {
+            type: 'string' //make this and array of string
+        }
+    }
 };
+
 

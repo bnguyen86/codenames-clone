@@ -48,6 +48,10 @@ module.exports.routes = {
   'get /word/set': 'RandomController.randomSet',
   'get /word/set/:category': 'RandomController.randomSetByCategroy',
   'get /word/one': 'RandomController.randomWord',
-  'get /word/one/:category': 'RandomController.randomWordByCategory'
+  'get /word/one/:category': 'RandomController.randomWordByCategory',
+  'post /game' : 'GameController.createGame',
+  'get /game/:gameId' : 'GameController.joinGame',
+  'post /game/:gameId' : 'GameController.playMove'
+
 
 };
