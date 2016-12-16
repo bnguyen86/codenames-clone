@@ -33,25 +33,46 @@
                       <span>Codenames</span>
                     </h2>
                     <span flex></span>
-                    <md-button aria-label="comment" class="md-icon-button">
+                    <md-button aria-label="Create Game" class="md-icon-button">
+                        <md-tooltip>
+                            Create Game
+                        </md-tooltip>
                         <md-icon md-svg-src="images/ic_group_white_24px.svg"></md-icon>
                     </md-button>
-                    <md-button aria-label="comment" class="md-icon-button">
+                    <md-button aria-label="Join Game" class="md-icon-button">
+                        <md-tooltip>
+                            Join Game
+                        </md-tooltip>
                         <md-icon md-svg-src="images/ic_group_add_white_24px.svg"></md-icon>
                     </md-button>
-                    <md-button aria-label="comment" class="md-icon-button">
+                    <md-button aria-label="Get New Words" class="md-icon-button">
+                        <md-tooltip>
+                            Get New Words
+                        </md-tooltip>
                         <md-icon md-svg-src="images/ic_view_comfy_white_24px.svg"></md-icon>
                     </md-button>
-                    <md-button aria-label="label" class="md-icon-button" ng-click="shuffleWords(wordList)">
+                    <md-button aria-label="Shuffle Words" class="md-icon-button" ng-click="shuffleWords(wordList)">
+                        <md-tooltip>
+                            Shuffle Words
+                        </md-tooltip>
                         <md-icon md-svg-src="images/ic_shuffle_white_24px.svg"></md-icon>
                     </md-button>
-                    <md-button aria-label="photo" class="md-icon-button">
+                    <md-button aria-label="Camera" class="md-icon-button">
+                        <md-tooltip>
+                            Camera
+                        </md-tooltip>
                         <md-icon md-svg-src="images/ic_camera_alt_white_24px.svg"></md-icon>
+                    </md-button>
+                    <md-button aria-label="Game Information" class="md-icon-button">
+                        <md-tooltip>
+                            Game Information
+                        </md-tooltip>
+                        <md-icon md-svg-src="images/ic_info_outline_white_24px.svg"></md-icon>
                     </md-button>
                 </div>
             </md-toolbar>
             <md-tabs md-dynamic-height class="md-accent" md-selected="data.selectedIndex" md-align-tabs="bottom">
-                <md-tab id="wordBoard">
+                <md-tab id="wordBoard" md-active="true">
                     <md-tab-label>Words</md-tab-label>
                     <md-tab-body>
                         <div layout="row" layout-wrap>
@@ -124,10 +145,8 @@
 
     <script src="bower_components/chance/chance.js"></script>
 
-    <script type="text/javascript" src="scripts/dependencies/sails.io.js"
-            autoConnect="false"
-            environment="production"
-            headers="'{ "x-csrf-token": "<%= typeof _csrf === 'undefined' ? _csrf : '' %>" }'">
+    <script type="text/javascript" src="/scripts/dependencies/sails.io.js"
+            autoConnect="true">
     </script>
     <!--REMOVE-SCRIPTS END-->
 
@@ -138,7 +157,8 @@
         <script src="scripts/app.js"></script>
         
         <script src="scripts/services/wordservice.js"></script>
-        
+        <script src="scripts/services/gameservice.js"></script>
+
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <!-- endbuild -->

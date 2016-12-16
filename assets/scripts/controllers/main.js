@@ -8,8 +8,15 @@
  * Controller of the codenamesApp
  */
 angular.module('codenamesApp')
-    .controller('MainCtrl', ['$scope', 'WordService',
-                            function ($scope, WordService) {
+    .controller('MainCtrl', ['$scope', 'WordService', 'GameService',
+                            function ($scope, WordService, GameService) {
+        io.socket.on('message', function (msg) {
+            console.log(msg)
+        });
+
+        io.socket.on('move', function (msg) {
+            console.log(msg)
+        });
         $scope.colourKey = {
                                 r: 'red-team',
                                 b: 'blue-team',

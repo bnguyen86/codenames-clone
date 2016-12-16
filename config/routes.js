@@ -51,7 +51,6 @@ module.exports.routes = {
   'get /word/one/:category': 'RandomController.randomWordByCategory',
   'post /game' : 'GameController.createGame',
   'get /game/:gameId' : 'GameController.joinGame',
-  'post /game/:gameId' : 'GameController.playMove'
-
-
+  'post /game/:gameId' : 'GameController.playMove',
+  'put /game/:gameId' : 'GameController.updateGame'
 };

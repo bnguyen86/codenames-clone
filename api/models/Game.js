@@ -14,11 +14,11 @@ module.exports = {
         },
 
         words: {
-            type: 'string' //make this an array of words (not the object)
+            type: 'array'
         },
 
         colourMap: {
-            type: 'string' //make this and array of string
+            type: 'array'
         }
     }
 };
