@@ -1,28 +1,28 @@
 module.exports = {
     createGame: function (req, res) {
-        var randomGameCode = Util.Service.generateGameCode(6);
+        var randomGameCode = UtilService.generateGameCode(6);
 
         //TODO: verify that game data is correct
         var gameData = req.body;
 
-        if(gamesData){
+        if(gameData){
             gameData.gameId = randomGameCode;
         } else{
             return res.badRequest();
         }
 
-        Game.create(gamesData).exec(function (e, record) {
+        Game.create(gameData).exec(function (e, record) {
             if(e){
                 GameService.createGame(req, res); //if there was an error, try again
             } else{
-                sails.sockets.join(req, gameData.gameId, function (socketErr) {
+                sails.sockets.join(req, record.gameId, function (socketErr) {
                     if(e){
                         res.badRequest(socketErr);
                     }
 
-                    sails.sockets.broadcast(gameId, 
+                    sails.sockets.broadcast(record.gameId, 
                                             'created', 
-                                            'You created a new game! Id: ' + gameData.gameId);
+                                            'You created a new game! Id: ' + record.gameId);
                 });
                 return res.json({gameId : record.gameId});
             }
@@ -31,23 +31,24 @@ module.exports = {
 
     joinGame: function (req, res) {
         var gameIdToFind = req.param('gameId');
+        gameIdToFind = gameIdToFind.toUpperCase();
 
         Game.findOne({gameId: gameIdToFind}).exec(function (e, record) {
             if(e){
                 console.error(e);
                 return res.badRequest({message: 'Could not find game'});                
             } else{
-                sails.sockets.join(req, gameId, function (socketErr) {
+                sails.sockets.join(req, record.gameId, function (socketErr) {
                     if(e){
                         return res.serverError(socketErr);
                     }
 
-                    sails.sockets.broadcast(gameId,
+                    sails.sockets.broadcast(record.gameId,
                                             'joined',
-                                            'Congrats you have joined: ' + gameId);
+                                            record);
 
                     return res.json({
-                      message: 'Subscribed to game: ' + gameId
+                      message: 'Subscribed to game: ' + record.gameId
                     });
                 });
                 

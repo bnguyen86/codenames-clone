@@ -30,16 +30,20 @@
                 <div class="md-toolbar-tools">
 
                     <h2>
-                      <span>Codenames</span>
+                      <span>Codenames{{status}}</span>
                     </h2>
                     <span flex></span>
-                    <md-button aria-label="Create Game" class="md-icon-button">
+                    <md-button aria-label="Create Game"
+                                class="md-icon-button"
+                                ng-click="showCreateGame($event)">
                         <md-tooltip>
                             Create Game
                         </md-tooltip>
                         <md-icon md-svg-src="images/ic_group_white_24px.svg"></md-icon>
                     </md-button>
-                    <md-button aria-label="Join Game" class="md-icon-button">
+                    <md-button aria-label="Join Game"
+                                class="md-icon-button"
+                                ng-click="showJoinGame($event)">
                         <md-tooltip>
                             Join Game
                         </md-tooltip>
@@ -51,7 +55,9 @@
                         </md-tooltip>
                         <md-icon md-svg-src="images/ic_view_comfy_white_24px.svg"></md-icon>
                     </md-button>
-                    <md-button aria-label="Shuffle Words" class="md-icon-button" ng-click="shuffleWords(wordList)">
+                    <md-button aria-label="Shuffle Words"
+                                class="md-icon-button"
+                                ng-click="shuffleWords(wordList)">
                         <md-tooltip>
                             Shuffle Words
                         </md-tooltip>
@@ -63,7 +69,9 @@
                         </md-tooltip>
                         <md-icon md-svg-src="images/ic_camera_alt_white_24px.svg"></md-icon>
                     </md-button>
-                    <md-button aria-label="Game Information" class="md-icon-button">
+                    <md-button aria-label="Game Information"
+                                class="md-icon-button"
+                                ng-click="showGameInfo($event)">
                         <md-tooltip>
                             Game Information
                         </md-tooltip>
@@ -76,7 +84,7 @@
                     <md-tab-label>Words</md-tab-label>
                     <md-tab-body>
                         <div layout="row" layout-wrap>
-                          <div ng-repeat="word in wordList" flex="20" class="am-flip-x">
+                          <div ng-repeat="word in game.wordList" flex="20" class="am-flip-x">
                             <md-card md-theme-watch class="word-card" ng-class="word.team">
                         
                                 <md-card-content layout="row" layout-align="center center">
@@ -101,7 +109,7 @@
                     <md-tab-label>Map</md-tab-label>
                     <md-tab-body>
                         <div layout="row" layout-wrap>
-                          <div ng-repeat="color in colorMap.map track by $index" flex="20" class="am-flip-x">
+                          <div ng-repeat="color in game.colorMap.map track by $index" flex="20" class="am-flip-x">
                             <md-card md-theme-watch class="word-card" ng-class="colourKey[color]">
                         
                                 <md-card-content layout="row" layout-align="center center">
@@ -160,7 +168,7 @@
         <script src="scripts/services/gameservice.js"></script>
 
         <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/gameinfo.js"></script>
         <!-- endbuild -->
 </body>
 </html>

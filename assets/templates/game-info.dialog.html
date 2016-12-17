@@ -1,0 +1,49 @@
+<md-dialog aria-label="Game Room Information">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Game Room Information</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="images/ic_close_white_24px.svg"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <span ng-if="game != null && game.gameId != null"
+                        layout="column"
+                        layout-align="center center">
+                    <qr text="game.gameId"></qr>
+                    <h1>{{game.gameId}}</h2>
+                </span>
+                <span ng-if="game == null || game.gameId == null">
+                    You are currently not in a game room
+                </span>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button ng-click="cancel()">
+                Close
+            </md-button>
+            <span flex></span>
+            <span ng-if="game != null && game.gameId != null">
+                <md-button ng-click="answer('leave')">
+                    Leave game room
+                </md-button>
+                <md-button ng-click="answer('create')">
+                    Create new game room
+                </md-button>                
+            </span>
+            <span ng-if="game == null || game.gameId == null">
+                <md-button ng-click="answer('join')">
+                    Join a game room
+                </md-button>
+                <md-button ng-click="answer('create')">
+                    Create new game room
+                </md-button>                
+            </span>
+
+        </md-dialog-actions>
+    </form>
+</md-dialog>

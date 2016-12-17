@@ -10,28 +10,35 @@
 angular.module('codenamesApp')
     .service('GameService', ['$resource', function($resource) {
         
-            this.createGame = function (wordsArr, colourMapArr) {
-                var gameData =  {
-                                    words: wordsArr,
-                                    colourMap: colourMapArr
-                                };
-
+            this.createGame = function (gameData) {
                 io.socket.post('/game', gameData, function (resData, jwres) {
+                    console.log('GameService.createGame:' + resData);
                     console.log(resData);
 
+                    gameData.gameId = resData.gameId;      
                     return resData;
                 });
             }
 
             this.joinGame = function (gameId) {
                 io.socket.get('/game/' + gameId, function (resData) {
+                    console.log('GameService.joinGame');
                     console.log(resData);
+
+                    return resData;
                 });
             }
 
             this.chooseWord = function (position, colour) {
                  /* body... */ 
-            }
+            },
+
+            this.colourKey = {
+                                r: 'red-team',
+                                b: 'blue-team',
+                                n: 'neutral-team',
+                                a: 'black-team' 
+                            };
 
 
         }]);
