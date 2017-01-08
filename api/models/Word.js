@@ -14,6 +14,9 @@ module.exports = {
         },
         category: {
             type: 'string'
+        },
+        team: {
+            type: 'string'
         }
     }
 };

@@ -57,11 +57,30 @@ module.exports = {
     },
 
     playMove: function (req, res) {
-        var gameId = req.param('gameId');
+        var gameToPlay = req.param('gameId');
 
         var moveData = req.body;
 
-        sails.sockets.broadcast(gameId, 'gameAction', moveData);
+        sails.sockets.broadcast(gameToPlay, 'gameAction', moveData);
+
+        Game.findOne({gameId: gameToPlay}).exec(function (e, record) {
+            if(e){
+                console.error(e);
+                return res.badRequest({message: 'Could not find game'});                
+            } else{
+                var gameData = record;
+
+                gameData.wordList[req.body.position].team = req.body.colour;
+                
+                Game.update({gameId: gameToPlay}, gameData).exec(function (e, record) {
+                    if(e){
+                        console.error(e);
+                        return res.badRequest({message: 'Could not find game'});                
+                    } 
+                });                
+            }
+        });
+
 
         return res.ok(); 
     },

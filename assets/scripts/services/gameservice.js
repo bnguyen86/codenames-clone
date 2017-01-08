@@ -29,8 +29,15 @@ angular.module('codenamesApp')
                 });
             }
 
-            this.chooseWord = function (position, colour) {
-                 /* body... */ 
+            this.chooseWord = function (gameId, position, colour) {
+                var moveData = {
+                    'position': position,
+                    'colour': colour
+                };
+                io.socket.post('/game/'+ gameId, moveData, function (resData) {
+                    console.log('GameService.chooseWord');
+                    console.log(resData);
+                });
             },
 
             this.colourKey = {

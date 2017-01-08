@@ -111,10 +111,16 @@ angular.module('codenamesApp')
 
         }
 
+        $scope.chooseWord = function (position, colour) {
+            GameService.chooseWord($scope.game.gameId, position, colour);
+        }
+
         io.socket.on('message', function (msg) {
             console.log(msg);
         });
 
+        //TODO: this can be done by returning the game data,
+        //no need to blast the data to everyone
         io.socket.on('joined', function (game) {
             if($scope.game.gameId != game.gameId){
                 $scope.game = game;
@@ -124,6 +130,13 @@ angular.module('codenamesApp')
 
         io.socket.on('gameAction', function (msg) {
             console.log(msg);
+            $scope.$apply(function () {
+                if($scope.game.wordList[msg.position].team == msg.colour){
+                    $scope.game.wordList[msg.position].team = null;
+                } else{
+                    $scope.game.wordList[msg.position].team = msg.colour;
+                }
+            });
         });
 
         io.socket.on('created', function (game) {

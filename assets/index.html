@@ -30,7 +30,7 @@
                 <div class="md-toolbar-tools">
 
                     <h2>
-                      <span>Codenames{{status}}</span>
+                      <span>Codenames</span>
                     </h2>
                     <span flex></span>
                     <md-button aria-label="Create Game"
@@ -110,7 +110,10 @@
                     <md-tab-body>
                         <div layout="row" layout-wrap>
                           <div ng-repeat="color in game.colorMap.map track by $index" flex="20" class="am-flip-x">
-                            <md-card md-theme-watch class="word-card" ng-class="colourKey[color]">
+                            <md-card md-theme-watch 
+                                        class="word-card"
+                                        ng-class="colourKey[color]"
+                                        ng-click="chooseWord($index, colourKey[color])">
                         
                                 <md-card-content layout="row" layout-align="center center">
                                 </md-card-content>

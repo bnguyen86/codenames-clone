@@ -13,7 +13,7 @@ module.exports = {
             unique: 'true'
         },
 
-        words: {
+        wordList: {
             type: 'array'
         },
 
